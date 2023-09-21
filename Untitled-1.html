@@ -6,7 +6,7 @@
     <script dafer >
 
       document.addEventListener('DOMContentLoaded', function() {
-          axios .get("https://eventsapi.onrender.com/api/Events").then((res)=>{
+          axios .get("https://localhost:7084/api/events").then((res)=>{
           var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
@@ -34,7 +34,7 @@
         var text=document.getElementById("ta").value;
         var date1=document.getElementById("dt").value;
         var id1=document.getElementById("selectt")[document.getElementById('selectt').selectedIndex].value;
-            axios.put(`https://eventsapi.onrender.com/api/Events/${id1}`, {
+            axios.put(`https://localhost:7084/api/events/${id1}`, {
                 "title":text,
                 "start":date1
             }).then(res => {
@@ -47,7 +47,7 @@
           
             }
           function add(t,s) {
-            axios.post("https://eventsapi.onrender.com/api/Events", {
+            axios.post("https://localhost:7084/api/events", {
                 "title": t,
                 "start":s
             }).then(res => {
@@ -59,7 +59,7 @@
         function dell()
       {
         var id1=document.getElementById("selectt1")[document.getElementById('selectt1').selectedIndex].value;
-        axios.delete(`https://eventsapi.onrender.com/api/Events/${id1}`).then(res => {console.log(res.data)})
+        axios.delete(`https://localhost:7084/api/events/${id1}`).then(res => {console.log(res.data)})
     }
 
       //  function deleteEvent()
